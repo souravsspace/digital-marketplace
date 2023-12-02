@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar"
 import { cn } from "@/lib/utils"
 
-export default function RootLayout({
+export default async function RootLayout({
    children,
 }: {
    children: React.ReactNode

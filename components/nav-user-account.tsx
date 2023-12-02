@@ -25,7 +25,7 @@ import {
 } from "lucide-react"
 
 export default function UserAccountNav() {
-   const { userData } = useUserSession()
+   const { userData, role, RoleEnum } = useUserSession()
    return (
       <DropdownMenu>
          <DropdownMenuTrigger asChild className="overflow-visible">
@@ -43,6 +43,15 @@ export default function UserAccountNav() {
                </div>
             </div>
             <DropdownMenuSeparator />
+
+            {role === RoleEnum.ADMIN && (
+               <DropdownMenuItem asChild>
+                  <Link href="/admin">
+                     <LayoutDashboard className="mr-2 h-4 w-4" />
+                     Admin Panel
+                  </Link>
+               </DropdownMenuItem>
+            )}
 
             <DropdownMenuItem asChild>
                <Link href="/dashboard">
